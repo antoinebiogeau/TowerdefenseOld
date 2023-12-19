@@ -10,14 +10,12 @@ public class Projectile : MonoBehaviour
     public GameObject explosionPrefab;
     public void SetTarget(Transform newTarget)
     {
-        Debug.Log("Projectile setting target: " + newTarget.name);
         target = newTarget;
     }
     void Update()
     {
         if (target == null)
         {
-            Debug.Log("Projectile target is null, destroying projectile.");
             Destroy(gameObject);
             return;
         }

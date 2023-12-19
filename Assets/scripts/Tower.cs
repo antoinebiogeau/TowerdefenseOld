@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 public class Tower : MonoBehaviour
 {
-    public enum TowerType { Standard, AreaOfEffect }
-    public TowerType towerType;
-    public GameObject projectilePrefab;
-    public float shootingRange = 10f;
-    public float standardShootingDelay = 0.5f; 
-    public float aoeShootingDelay = 1f; 
+    private enum TowerType { Standard, AreaOfEffect }
+    [SerializeField] private TowerType towerType;
+    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private float shootingRange = 10f;
+    [SerializeField] private float standardShootingDelay = 0.5f; 
+    [SerializeField] private float aoeShootingDelay = 1f; 
     private float lastShootTime;
     private List<Transform> enemiesInRange = new List<Transform>();
     private CircleCollider2D rangeCollider;
@@ -23,7 +23,6 @@ public class Tower : MonoBehaviour
 
     void Update()
     {
-        UpdateEnemiesList();
         HandleShooting();
     }
 
@@ -39,19 +38,7 @@ public class Tower : MonoBehaviour
         }
     }
 
-
-
-    private float GetShootingDelay()
-    {
-        return towerType == TowerType.Standard ? standardShootingDelay : aoeShootingDelay;
-    }
-
-    private void UpdateEnemiesList()
-    {
-        enemiesInRange.RemoveAll(enemy => enemy == null);
-        Debug.Log("Enemies in range: " + enemiesInRange.Count);
-    }
-
+    private float GetShootingDelay() => towerType == TowerType.Standard ? standardShootingDelay : aoeShootingDelay;
 
     private void ShootAt(Transform target)
     {
