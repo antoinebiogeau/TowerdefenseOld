@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  damage: 20
+  damage: 40
   isAreaOfEffect: 0
-  areaEffectRadius: 2
+  areaEffectRadius: 4
   explosionPrefab: {fileID: 9026022523450249562, guid: 7dc231db1cf7c3b4ab5d0196f61c91dd, type: 3}

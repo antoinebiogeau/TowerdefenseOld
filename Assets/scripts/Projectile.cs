@@ -3,7 +3,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public float speed = 10f;
-    public float damage = 20f;
+    public float damage = 40f;
     public bool isAreaOfEffect = false; 
     public float areaEffectRadius = 5f;
     private Transform target;
@@ -48,8 +48,6 @@ public class Projectile : MonoBehaviour
     {
         GameObject explosionEffect = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         explosionEffect.GetComponent<ExplosionEffect>().maxSize = areaEffectRadius;
-
-        // Appliquer les dégâts
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, areaEffectRadius);
         foreach (Collider2D nearbyObject in colliders)
         {
