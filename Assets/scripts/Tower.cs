@@ -12,18 +12,22 @@ public class Tower : MonoBehaviour
     private float lastShootTime;
     private List<Transform> enemiesInRange = new List<Transform>();
     private CircleCollider2D rangeCollider;
+    public bool canShoot = true;
 
     void Start()
     {
         rangeCollider = gameObject.AddComponent<CircleCollider2D>(); 
         rangeCollider.radius = shootingRange;
-        rangeCollider.isTrigger = true; 
+        rangeCollider.isTrigger = true;
         lastShootTime = Time.time; 
     }
 
     void Update()
     {
-        HandleShooting();
+        if(canShoot)
+        {
+            HandleShooting();
+        }
     }
 
     private void HandleShooting()

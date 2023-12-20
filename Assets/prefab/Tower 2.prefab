@@ -100,6 +100,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tower 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7831423135299018871, guid: 1aa3c78fcb0ea0c40ab2ba537c84e07c, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 212618472941945794, guid: 1aa3c78fcb0ea0c40ab2ba537c84e07c, type: 3}
     - {fileID: -6136245448304717525, guid: 1aa3c78fcb0ea0c40ab2ba537c84e07c, type: 3}

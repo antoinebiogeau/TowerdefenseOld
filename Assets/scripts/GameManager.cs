@@ -120,9 +120,9 @@ public class GameManager : MonoBehaviour
         private void StartPlacingTower(GameObject towerPrefab)
         {
             if (currentTowerGhost != null) Destroy(currentTowerGhost);
-
             currentTowerGhost = Instantiate(towerPrefab, GetMouseWorldPosition(), Quaternion.identity);
             Tower towerScript = currentTowerGhost.GetComponent<Tower>();
+            towerScript.canShoot = false;
             currentTowerGhost.GetComponent<Renderer>().material.color = new Color(1, 1, 1, 0.5f);
         }
 
@@ -142,6 +142,7 @@ public class GameManager : MonoBehaviour
             {
                 Tower towerScript = currentTowerGhost.GetComponent<Tower>();
                 currentTowerGhost.GetComponent<Renderer>().material.color = Color.white;
+                towerScript.canShoot = true;
                 currentTowerGhost = null;
                 SpendGold(50);
             }
@@ -170,10 +171,9 @@ public class GameManager : MonoBehaviour
         private void StopGame()
         {
             isGameActive = false;
-            gameOverText.gameObject.SetActive(true); // Active le texte "Game Over"
+            gameOverText.gameObject.SetActive(true); 
             Debug.Log("Jeu terminé");
 
-            // Vous pouvez également arrêter d'autres fonctionnalités ici, comme désactiver les contrôles du joueur, etc.
         }
         private void EnemyReachedEnd(EnnemyDep enemy)
         {
