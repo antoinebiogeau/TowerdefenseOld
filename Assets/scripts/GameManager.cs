@@ -5,25 +5,26 @@ using UnityEngine.UI;
 using TMPro;
 public class GameManager : MonoBehaviour
 {
+        //Bon j'avoue que j'aurais pu encaspuler le code et pas avoir un gamemanager aussi fat
         [SerializeField] private TextMeshProUGUI gameOverText;
         public Image healthBarImage;
         private float maxHealth = 100f;
         private float currentHealth;
         private RectTransform healthBarRect;
-        public TextMeshProUGUI goldText; 
-        private int goldAmount = 0; 
-        public GameObject standardTowerPrefab;
-        public LayerMask pathLayer; 
+        [SerializeField] private TextMeshProUGUI goldText; 
+        private int goldAmount = 0;
+        [SerializeField] private GameObject standardTowerPrefab;
+        [SerializeField] private LayerMask pathLayer; 
         private GameObject currentTowerGhost;
-        public static GameManager instance;
-        public SpawnEnnemi spawnEnnemiScript;
-        public TextMeshProUGUI waveText;
+        [SerializeField] private static GameManager instance;
+        [SerializeField] private SpawnEnnemi spawnEnnemiScript;
+        [SerializeField] private TextMeshProUGUI waveText;
         private bool isGameActive = true;
         private int currentWave = 0;
         private int enemiesRemaining;
         [SerializeField] private float tempsEntreLesVagues = 5f;
         private bool isWaitingForNextWave = false;
-        public GameObject advancedTowerPrefab;
+        [SerializeField] private GameObject advancedTowerPrefab;
         void Awake()
         {
             if (instance != null && instance != this)
@@ -98,12 +99,12 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("Pas assez d'or !");
+                Debug.Log("Not Enough gold!");
             }
         }
         private void UpdateGoldUI()
         {
-            goldText.text = $"Or : {goldAmount}";
+            goldText.text = $"Gold : {goldAmount}";
         }
         public void OnStandardTowerButtonClicked()
         {
@@ -113,7 +114,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("Pas assez d'or !");
+                Debug.Log("Not Enough gold!");
             }
         }
 
@@ -154,7 +155,7 @@ public class GameManager : MonoBehaviour
             {
                 isWaitingForNextWave = false;
                 currentWave++;
-                waveText.text = "Manche: " + currentWave;
+                waveText.text = "Wave: " + currentWave;
                 spawnEnnemiScript.StartNextWave(currentWave);
                 enemiesRemaining = spawnEnnemiScript.numberOfEnemiesInWave;
             }
@@ -172,7 +173,7 @@ public class GameManager : MonoBehaviour
         {
             isGameActive = false;
             gameOverText.gameObject.SetActive(true); 
-            Debug.Log("Jeu terminé");
+            Debug.Log("Game Over");
 
         }
         private void EnemyReachedEnd(EnnemyDep enemy)
@@ -208,7 +209,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("Pas assez d'or pour la tour avancée !");
+                Debug.Log("Not Enougth gold for advanced tower!");
             }
         }
 }

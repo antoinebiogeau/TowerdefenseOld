@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ExplosionEffect : MonoBehaviour
 {
-    public float maxSize = 5f; 
-    public float growSpeed = 1f; 
-    public float duration = 1f; 
+    public float maxSize = 5f;
+    [SerializeField] private float growSpeed = 1f;
+    [SerializeField] private float duration = 1f; 
     private float currentSize = 0f;
     private float timeElapsed = 0f;
 

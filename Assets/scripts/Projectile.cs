@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public float speed = 10f;
-    public float damage = 40f;
-    public bool isAreaOfEffect = false; 
-    public float areaEffectRadius = 5f;
-    private Transform target;
-    public GameObject explosionPrefab;
+    [SerializeField] private float speed = 10f;
+    [SerializeField] private float damage = 40f;
+    [SerializeField] public bool isAreaOfEffect = false;
+    [SerializeField] private float areaEffectRadius = 5f;
+    [SerializeField] private Transform target;
+    [SerializeField] private GameObject explosionPrefab;
     public void SetTarget(Transform newTarget)
     {
         target = newTarget;
