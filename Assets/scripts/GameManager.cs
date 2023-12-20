@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
         public Image healthBarImage;
         private float maxHealth = 100f;
         private float currentHealth;
-        private RectTransform healthBarRect;
         [SerializeField] private TextMeshProUGUI goldText; 
         private int goldAmount = 0;
         [SerializeField] private GameObject standardTowerPrefab;
@@ -39,7 +38,6 @@ public class GameManager : MonoBehaviour
         void Start()
         {
             currentHealth = maxHealth;
-            healthBarRect = healthBarImage.GetComponent<RectTransform>();
             UpdateGoldUI();
             StartNextWave();
         }
@@ -69,8 +67,8 @@ public class GameManager : MonoBehaviour
 
         private void UpdateHealthBar()
         {
-            float healthPercentage = currentHealth / maxHealth;
-            healthBarRect.localScale = new Vector3(healthPercentage, 1, 1);
+            healthBarImage.fillAmount = currentHealth / maxHealth;
+            
         }
 
         void OnEnable()
