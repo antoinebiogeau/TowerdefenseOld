@@ -287,8 +287,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15949af52cebe994a841d32205edf50e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnnemiLent: {fileID: 26165405803989427, guid: e78015ffea4f3f84cb3d4a03969b760a, type: 3}
-  EnnemiRapide: {fileID: 2146857657442185661, guid: 5b13fc8db99fb7949853c446b15e02db, type: 3}
+  NMISlow: {fileID: 26165405803989427, guid: e78015ffea4f3f84cb3d4a03969b760a, type: 3}
+  NMISpeeed: {fileID: 2146857657442185661, guid: 5b13fc8db99fb7949853c446b15e02db, type: 3}
   SpawnPoint: {fileID: 377882200}
   currentWave: 0
   numberOfEnemiesInWave: 20

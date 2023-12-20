@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SpawnEnnemi : MonoBehaviour
 {
-    [SerializeField] private GameObject EnnemiLent;
-    [SerializeField] private GameObject EnnemiRapide;
+    [SerializeField] private GameObject NMISlow;
+    [SerializeField] private GameObject NMISpeeed;
     [SerializeField] private Transform SpawnPoint;
 
     public int currentWave = 0;
@@ -26,11 +26,11 @@ public class SpawnEnnemi : MonoBehaviour
             float random = Random.Range(0, 100); 
             if (random < currentWave * 10.0f) 
             {
-                Instantiate(EnnemiRapide, SpawnPoint.position, Quaternion.identity);
+                Instantiate(NMISpeeed, SpawnPoint.position, Quaternion.identity);
             }
             else
             {
-                Instantiate(EnnemiLent, SpawnPoint.position, Quaternion.identity);
+                Instantiate(NMISlow, SpawnPoint.position, Quaternion.identity);
             }
             yield return new WaitForSeconds(delayBetweenEnemies);
         }
